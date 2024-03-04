@@ -62,6 +62,26 @@ class SinglyLinkedList {
      */
     insertAtBack(data) {
         // Your Code Here
+
+        const newNode = new ListNode(data);
+
+        if (this.isEmpty()) {
+            this.head = newNode;
+            return this;
+        }
+
+        let runner = this.head;
+
+        while (runner.next !== null) {
+
+            runner = runner.next
+
+        }
+
+        runner.next = newNode
+
+        return this;
+
     }
 
     /**
@@ -76,6 +96,20 @@ class SinglyLinkedList {
      */
     insertAtBackRecursive(data, runner = this.head) {
         //your code here
+
+        // const newNode = new ListNode(data);
+
+        if (this.isEmpty()) {
+            this.head = new ListNode(data);
+            return this;
+        }
+
+        if (runner.next === null) {
+            runner.next = new ListNode(data);
+            return this;
+        }
+
+        return this.insertAtBackRecursive(data, runner.next)
     }
 
     /**
@@ -118,8 +152,8 @@ Multiple test lists already constructed to test your methods on.
 Below commented code depends on insertAtBack method to be completed,
 after completing it, uncomment the code.
 */
-const emptyList = new SinglyLinkedList();
-
+const emptyList = new SinglyLinkedList().insertAtBack(2).insertAtBack(3).insertAtBack(4);
+console.log(emptyList.toArr())
 
 // const singleNodeList = new SinglyLinkedList().insertAtBack(1);
 // const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
