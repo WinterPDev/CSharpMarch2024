@@ -62,7 +62,6 @@ class SinglyLinkedList {
      */
     insertAtBack(data) {
         // Your Code Here
-
         const newNode = new ListNode(data);
 
         if (this.isEmpty()) {
@@ -71,17 +70,12 @@ class SinglyLinkedList {
         }
 
         let runner = this.head;
-
         while (runner.next !== null) {
-
             runner = runner.next
-
         }
 
         runner.next = newNode
-
         return this;
-
     }
 
     /**
@@ -95,10 +89,6 @@ class SinglyLinkedList {
      * @returns {SinglyLinkedList} This list.
      */
     insertAtBackRecursive(data, runner = this.head) {
-        //your code here
-
-        // const newNode = new ListNode(data);
-
         if (this.isEmpty()) {
             this.head = new ListNode(data);
             return this;
@@ -111,6 +101,51 @@ class SinglyLinkedList {
 
         return this.insertAtBackRecursive(data, runner.next)
     }
+
+    insertAtFront(data) {
+        const newNode = new ListNode(data);
+        newNode.next = this.head;
+        this.head = newNode;
+        return this;
+    }
+
+    /**
+     * Removes the first node of this list.
+     * - Time: O(1) constant.
+     * - Space: O(1) constant.
+     * @returns {any} The data from the removed node.
+     */
+    removeHead() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        let temp = this.head;
+        this.head = this.head.next;
+        return temp.data;
+    }
+
+    // EXTRA
+    /**
+     * Calculates the average of this list.
+     * - Time: O(n) linear, n = length of list.
+     * - Space: O(1) constant.
+     * @returns {number|NaN} The average of the node's data.
+     */
+    average() {
+        // Your Code Here~
+        let runner = this.head;
+        let sum = 0;
+        let count = 0;
+        while (runner) {
+            sum += runner.data;
+            count += 1;
+            runner = runner.next;
+        }
+        return sum / count;
+    }
+
+
+
 
     /**
      * Calls insertAtBack on each item of the given array.

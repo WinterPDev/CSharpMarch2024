@@ -112,11 +112,31 @@ List<string> FavFoods = new List<string>();
 
 Dictionary<string, int> PetAges = new();
 
-PetAges.Add("Minerva", 6);
+// PetAges.Add("Minerva", 6);
 
-Console.WriteLine(PetAges["Minerva"]);
+// Console.WriteLine(PetAges["Minerva"]);
 
-foreach (KeyValuePair<string, int> pet in PetAges)
+// foreach (KeyValuePair<string, int> pet in PetAges)
+// {
+//     Console.WriteLine($"Key : {pet.Key} - Value : {pet.Value}");
+// }
+
+
+void SayHello()
 {
-    Console.WriteLine($"Key : {pet.Key} - Value : {pet.Value}");
+    Console.WriteLine("Hello from the function!");
 }
+
+SayHello();
+
+static int AddNumbers(int num1 = 10, int num2 = 10)
+{
+
+    return num1 + num2;
+}
+
+Console.WriteLine(AddNumbers(1, 2));
+Console.WriteLine(AddNumbers());
+
+
+Console.WriteLine(2 ^ 30);

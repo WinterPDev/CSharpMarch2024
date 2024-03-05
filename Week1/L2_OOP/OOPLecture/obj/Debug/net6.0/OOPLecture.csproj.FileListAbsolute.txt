@@ -1,0 +1,15 @@
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\bin\Debug\net6.0\OOPLecture.exe
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\bin\Debug\net6.0\OOPLecture.deps.json
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\bin\Debug\net6.0\OOPLecture.runtimeconfig.json
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\bin\Debug\net6.0\OOPLecture.dll
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\bin\Debug\net6.0\OOPLecture.pdb
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.csproj.AssemblyReference.cache
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.AssemblyInfoInputs.cache
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.AssemblyInfo.cs
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.csproj.CoreCompileInputs.cache
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.dll
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\refint\OOPLecture.dll
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.pdb
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\OOPLecture.genruntimeconfig.cache
+C:\Users\seren\Documents\CodingDojo\Classes\2024\CSharpMarch2024\week1\L2_OOP\OOPLecture\obj\Debug\net6.0\ref\OOPLecture.dll
