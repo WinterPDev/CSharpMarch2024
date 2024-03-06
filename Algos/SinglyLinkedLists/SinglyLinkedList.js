@@ -152,10 +152,15 @@ class SinglyLinkedList {
      * @returns {any} The data from the node that was removed.
      */
     removeBack() {
-        // Your code here~
-
-        // Edge case for empty list
-        // 
+        let runner = this.head;
+        while (runner.next.next) {
+            runner = runner.next;
+        }
+        let temp = runner;
+        // console.log(temp);
+        // console.log(runner.next);
+        runner.next = null;
+        return temp.data;
     }
 
 
@@ -167,7 +172,14 @@ class SinglyLinkedList {
      * @returns {boolean}
      */
     contains(val) {
-        // Your Code Here
+        let runner = this.head;
+        while (runner) {
+            if (runner.data === val) {
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;
     }
 
 
@@ -181,9 +193,10 @@ class SinglyLinkedList {
      * @returns {boolean}
      */
     containsRecursive(val, current = this.head) {
-        // Your code here
+        if (!current) return false;
+        if (current.data === val) return true;
+        return this.containsRecursive(val, current.next)
     }
-
 
 
     /**
@@ -233,9 +246,11 @@ console.log(emptyList.toArr())
 // const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
 // const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
 // const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
-// const unorderedList = new SinglyLinkedList().insertAtBackMany([
-// -5, -10, 4, -3, 6, 1, -7, -2
-// ]);
+const unorderedList = new SinglyLinkedList().insertAtBackMany([
+    -5, -10, 4, -3, 6, 1, -7, -2
+]);
+
+unorderedList.removeBack()
 
 
 

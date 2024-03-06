@@ -1,4 +1,6 @@
 
+using System.Reflection;
+
 class Game
 {
 
@@ -16,7 +18,7 @@ class Game
     public string Platform { get { return _Platform; } set { _Platform = value; } }
 
     private int _ReleaseYear;
-    public int ReleaseYear { get; set; } = 2024;
+    public int ReleaseYear { get { return _ReleaseYear; } set { _ReleaseYear = value; } }
 
     private bool _Multiplayer;
     public bool Multiplayer { get; set; } = false;
@@ -47,6 +49,15 @@ class Game
         {
             this.ShowInfo();
         }
+    }
+
+    public static Game ShowInfo2(Game g)
+    {
+        foreach (PropertyInfo prop in typeof(Game).GetProperties())
+        {
+            Console.WriteLine("{0} = {1}", prop.Name, prop.GetValue(g, null));
+        }
+        return g;
     }
 
 }

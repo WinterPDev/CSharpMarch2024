@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    @{
+        List<string> FoodList = new List<string>() { "apple", "eggs", "sushi", "granola" };
+
+    }
+
+    <h1>This is the page for the Dashboard Route! From the First Controller!</h1>
+
+    <ul>
+
+        @foreach (string food in FoodList)
+        {
+            if (food == "sushi")
+            {
+                <li>^ -- The Best food!</li>
+            }
+            <li>@food</li>
+        }
+
+
+    </ul>
+
+
+    <p>@FoodList[2]</p>
+
+
+    <h3>ViewBag Stuff Here</h3>
+    <p>Name : @ViewBag.Name</p>
+    <p>Number : @ViewBag.Num</p>
+
+    @foreach (string food in ViewBag.Foods)
+    {
+        <p>@food</p>
+    }
+
+    <img src="~/img/redpanda.jpg" alt="Red Panda">
+
+
+
+
+</body>
+
+</html>

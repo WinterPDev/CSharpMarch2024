@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\seren\\Documents\\CodingDojo\\classes\\2024\\CSharpMarch2024\\week1\\L3_WebApp\\FirstWebApp\\wwwroot\\img\\redpanda.jpg",
+      "PackagePath": "staticwebassets\\img\\redpanda.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.FirstWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.FirstWebApp.props",
+      "PackagePath": "build\\FirstWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.FirstWebApp.props",
+      "PackagePath": "buildMultiTargeting\\FirstWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.FirstWebApp.props",
+      "PackagePath": "buildTransitive\\FirstWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
