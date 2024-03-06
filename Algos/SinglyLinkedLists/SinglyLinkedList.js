@@ -145,6 +145,45 @@ class SinglyLinkedList {
     }
 
 
+    /**
+     * Removes the last node of this list.
+     * - Time: O(n) linear, n = length of list.
+     * - Space: O(1) constant.
+     * @returns {any} The data from the node that was removed.
+     */
+    removeBack() {
+        // Your code here~
+
+        // Edge case for empty list
+        // 
+    }
+
+
+    /**
+     * Determines whether or not the given search value exists in this list.
+     * - Time: O(n) linear, n = length of list.
+     * - Space: O(1) constant.
+     * @param {any} val The data to search for in the nodes of this list.
+     * @returns {boolean}
+     */
+    contains(val) {
+        // Your Code Here
+    }
+
+
+    /**
+     * Determines whether or not the given search value exists in this list.
+     * - Time: O(n) linear, n = length of list.
+     * - Space: O(n) linear due to the call stack.
+     * @param {any} val The data to search for in the nodes of this list.
+     * @param {?node} current The current node during the traversal of this list
+     *    or null when the end of the list has been reached.
+     * @returns {boolean}
+     */
+    containsRecursive(val, current = this.head) {
+        // Your code here
+    }
+
 
 
     /**
