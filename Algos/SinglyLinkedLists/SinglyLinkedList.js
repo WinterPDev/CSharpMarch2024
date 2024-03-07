@@ -198,6 +198,61 @@ class SinglyLinkedList {
         return this.containsRecursive(val, current.next)
     }
 
+    /**
+     * Retrieves the data of the second to last node in this list.
+     * - Time: O(n - 1) n = list length -> O(n) linear.
+     * - Space: O(1) constant.
+     * @returns {any} The data of the second to last node or null if there is no
+     *    second to last node.
+     */
+    secondToLast() {
+        // Your Code Here
+    }
+
+    /**
+     * Removes the node that has the given val.
+     * - Time: O(n) linear, n = list length since the last node could be the one
+     *    that is removed.
+     * - Space: O(1) constant.
+     * @param {any} val The value to compare to the node's data to find the
+     *    node to be removed.
+     * @returns {boolean} Indicates if a node was removed or not.
+     */
+    removeVal(val) {
+        // Your Code Here
+
+        /* Note: 
+            If we remove/change the head will be different than other nodes. (Remember: you can use other functions in the class! (Like removehead())
+            If the node is at the very end of our list, our node connection/disconnection logic would also be different.
+
+            If there are multiple of the same value, remove the first node found.
+            If the value is not found, return false. 
+        */
+    }
+
+
+    // EXTRA
+    /**
+     * Inserts a new node before a node with that has a specified value.
+     * - Time: O(n) linear, n = list length, because we could end up pre-pending
+     *    to the last node.
+     * - Space: O(1) constant.
+     * @param {any} newVal The value to use for the new node that is being added.
+     * @param {any} targetVal The value to use to find the node that the newVal
+     *    should be inserted in front of.
+     * @returns {ListNode|null} The added node, or null.
+     */
+    prepend(newVal, targetVal) {
+        // Edge-case: If the targetVal is the head of our list, we'd be adding the newVal node as our head. So we could use our insertAtFront() method.
+
+        // newVal is the node data being added.
+        // targetVal is the node that will be ahead of the new node being added.
+
+        // Note: return the prepended Node or null if the targetVal is not found.
+    }
+
+
+
 
     /**
      * Calls insertAtBack on each item of the given array.
