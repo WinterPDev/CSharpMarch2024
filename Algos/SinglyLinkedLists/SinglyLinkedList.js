@@ -294,8 +294,10 @@ class SinglyLinkedList {
      * @returns {SinglyLinkedList} This list.
      */
     moveMinFront() {
-        // Hint: We'll want to keep track of more than just a single runner for this.
-
+        // Hint: We'll want to keep track of more than just a single runner for this. (min, runner, prev)
+        // 1. Find and track the Min node.
+        // 2. We'll also want to keep track of the node BEFORE min for when we update the connection. 
+        // 3. Extract the Min Node/fix the list connections.
     }
 
 
