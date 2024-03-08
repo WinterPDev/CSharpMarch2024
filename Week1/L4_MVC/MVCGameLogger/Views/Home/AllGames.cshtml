@@ -1,0 +1,13 @@
+@model List<Game>
+
+
+
+<div class="text-center">
+    <h1>All The Games in the DB!</h1>
+
+    @foreach (Game g in Model)
+    {
+        <p> @g.Title | @g.Platform | @g.ReleaseYear | @(g.Completed ? "Game Beaten" : "Not Completed!")</p>
+    }
+
+</div>

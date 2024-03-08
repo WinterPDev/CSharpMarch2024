@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model Game
+
+
+<div class="text-center">
+
+    <form asp-action="CreateGame" asp-controller="Home" method="post">
+
+        <div>
+            <label asp-for="Title"></label>
+            <input asp-for="Title">
+
+            <span asp-validation-for="Title" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="Platform"></label>
+            <input asp-for="Platform">
+
+            <span asp-validation-for="Platform" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="ReleaseYear"></label>
+            <input asp-for="ReleaseYear">
+
+            <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="Completed"></label>
+            <input type="checkbox" asp-for"Completed">
+        </div>
+
+        <button>Add Game to DB</button>
+
+    </form>
+
+
+    <a asp-action="AllGames" asp-controller="Home">View All Games</a>
+
+</div>

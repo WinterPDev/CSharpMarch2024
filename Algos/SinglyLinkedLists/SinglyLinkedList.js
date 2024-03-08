@@ -206,30 +206,35 @@ class SinglyLinkedList {
      *    second to last node.
      */
     secondToLast() {
-        // Your Code Here
+        let runner = this.head;
+        while (runner.next.next) {
+            runner = runner.next;
+        }
+
+        // console.log(runner);
+        return runner.data;
     }
 
-    /**
-     * Removes the node that has the given val.
-     * - Time: O(n) linear, n = list length since the last node could be the one
-     *    that is removed.
-     * - Space: O(1) constant.
-     * @param {any} val The value to compare to the node's data to find the
-     *    node to be removed.
-     * @returns {boolean} Indicates if a node was removed or not.
-     */
     removeVal(val) {
-        // Your Code Here
+        // *************** CODE ************************
 
-        /* Note: 
-            If we remove/change the head will be different than other nodes. (Remember: you can use other functions in the class! (Like removehead())
-            If the node is at the very end of our list, our node connection/disconnection logic would also be different.
+        let runner = this.head;
+        if (this.head.data == val) {
+            this.removeHead();
+            return true;
+        }
+        while (runner.next) {
+            if (runner.next.data == val) {
+                runner.next = runner.next.next;
+                return true;
+            }
 
-            If there are multiple of the same value, remove the first node found.
-            If the value is not found, return false. 
-        */
+            runner = runner.next;
+        }
+        return false;
+
+
     }
-
 
     // EXTRA
     /**
@@ -244,14 +249,54 @@ class SinglyLinkedList {
      */
     prepend(newVal, targetVal) {
         // Edge-case: If the targetVal is the head of our list, we'd be adding the newVal node as our head. So we could use our insertAtFront() method.
-
         // newVal is the node data being added.
         // targetVal is the node that will be ahead of the new node being added.
-
         // Note: return the prepended Node or null if the targetVal is not found.
+        if (this.head.data === targetVal) {
+            this.insertAtFront(newVal);
+            return this.head;
+        }
+        let runner = this.head;
+        while (runner) {
+            if (runner.next.data == targetVal) {
+                const newNode = new ListNode(newVal);
+                newNode.next = runner.next;
+                runner.next = newNode;
+                return newNode;
+            }
+            runner = runner.next;
+        }
+        return null;
     }
 
 
+
+    /**
+     * Concatenates the nodes of a given list onto the back of this list.
+     * - Time: O(n) n = "this" list length -> O(n) linear.
+     *    addList does not need to be looped over.
+     * - Space: O(1) constant, although this list grows by addList's length,
+     *    our algo doesn't create extra objects or arrays to take up more space.
+     * @param {SinglyLinkedList} addList An instance of a different list whose
+     *    whose nodes will be added to the back of this list.
+     * @returns {SinglyLinkedList} This list with the added nodes.
+     */
+    concat(addList) {
+        // Edge case: If we concat to an empty list, we'll want to update the head to the new list.
+    }
+
+    /**
+     * Finds the node with the smallest number as data and moves it to the front
+     * of this list.
+     * - Time: O(2n) n = list length -> O(n) linear,
+     *    2nd loop could go to end if min is at end.
+     * - Space: O(1) constant.
+     * @returns {SinglyLinkedList} This list.
+     */
+    moveMinFront() {
+        // Hint: We'll want to keep track of more than just a single runner for this.
+
+    }
 
 
     /**
