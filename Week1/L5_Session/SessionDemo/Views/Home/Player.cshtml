@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Characters";
+}
+
+
+<h2>This is the Player Page</h2>
+
+
+<form asp-action="UpdatePlayer">
+    <div>
+
+        <label for="CharacterName">Character Name : </label>
+        <input type="text" name="CharacterName">
+    </div>
+    <div>
+
+        <label for="CharacterLevel">Character Level : </label>
+        <input type="number" name="CharacterLevel">
+    </div>
+
+
+    <input class="btn btn-success border" type="submit" value="Update Player">
+</form>
+
+<div class="container">
+
+    <p> Character Info Displayed Here : </p>
+    @* Display Session Data Here *@
+
+
+    @if (Context.Session.GetString("CharacterName") == null)
+    {
+        <h3> Please Enter Chracter Name</h3>
+    }
+    else
+    {
+        <h3> Character Name : @Context.Session.GetString("CharacterName")</h3>
+    }
+
+    @if (Context.Session.GetInt32("CharacterLevel") == null)
+    {
+        <h3> Please Enter Chracter Level</h3>
+    }
+    else
+    {
+        <h3> Character Level : @Context.Session.GetInt32("CharacterLevel")</h3>
+    }
+
+
+</div>
+
+<div>
+    <a asp-action="Logout">
+        <button class="btn btn-danger mt-3 border">Log Out</button>
+    </a>
+</div>
