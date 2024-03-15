@@ -165,24 +165,32 @@ class BinarySearchTree {
  * @returns {BinarySearchTree} This tree.
  */
   insert(newVal) {
-    const newNode = new BSTNode(newVal);
+    const node = new BSTNode(newVal);
+
+    //if empty, make the new root
     if (this.isEmpty()) {
-      this.root = newNode;
+      this.root = node;
+      return this;
     }
+
     let current = this.root;
-    while (current) {
-      if (newVal > current.data) {
-        if (!current.right) {
-          current.right = newNode;
+
+    while (true) {
+      if (newVal <= current.data) {
+        if (current.left === null) {
+          current.left = node;
           return this;
         }
-        current = current.right;
-      } else {
-        if (!current.left) {
-          current.left = newNode;
-          return this;
-        }
+
         current = current.left;
+      } else {
+        // newVal is greater than current.data
+        if (current.right === null) {
+          current.right = node;
+          return this;
+        }
+
+        current = current.right;
       }
     }
   }
@@ -232,8 +240,11 @@ class BinarySearchTree {
     // We can get started with this as our base case: as long as there are nodes, perform the recursion.
     // Note: These are solved by what order we call the functions and when we push to our vals array!
     if (node) {
-
+      vals.push(node.data);
+      this.toArrPreorder(node.left, vals);
+      this.toArrPreorder(node.right, vals);
     }
+
     return vals;
   }
 
@@ -248,7 +259,13 @@ class BinarySearchTree {
    * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
    */
   toArrInorder(node = this.root, vals = []) {
+    if (node) {
+      this.toArrInorder(node.left, vals);
+      vals.push(node.data);
+      this.toArrInorder(node.right, vals);
+    }
 
+    return vals;
   }
 
   /**
@@ -261,9 +278,41 @@ class BinarySearchTree {
    * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
    */
   toArrPostorder(node = this.root, vals = []) {
-    // Your code here 
-
+    // Your code here
+    if (node) {
+      this.toArrPostorder(node.left, vals);
+      this.toArrPostorder(node.right, vals);
+      vals.push(node.data);
+    }
+    return vals;
   }
+
+
+  /**
+   * Recursively counts the total number of nodes in this tree.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {Node} node The current node during the traversal of this tree.
+   * @returns {number} The total number of nodes.
+   */
+  size(node = this.root) {
+    //Your code here
+    // Total count of nodes in the tree.
+  }
+
+  /**
+   * Calculates the height of the tree which is based on how many nodes from
+   * top to bottom (whichever side is taller).
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {Node} node The current node during traversal of this tree.
+   * @returns {number} The height of the tree.
+   */
+  height(node = this.root) {
+    //Your code here
+    // MAXimum length branch
+  }
+
 
   // Logs this tree horizontally with the root on the left.
   print(node = this.root, spaceCnt = 0, spaceIncr = 10) {
