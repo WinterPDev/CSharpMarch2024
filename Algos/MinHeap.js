@@ -9,7 +9,7 @@
  * 
  * - Visualization Link: https://www.cs.usfca.edu/~galles/visualization/Heap.html
  */
-class MinHeapBasic {
+class MinHeap {
   constructor() {
     /**
      * 0th index not used, so null is a placeholder. Not using 0th index makes
@@ -42,16 +42,6 @@ class MinHeapBasic {
     // i == index of parent node
     return i * 2 + 1;
   }
-
-  /**
-   * Swaps two nodes.
-   * @param {number} i
-   * @param {number} j
-   */
-  swap(i, j) {
-    [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
-  }
-
 
   /**
    * Retrieves the top (minimum number) in the heap without removing it.
@@ -106,7 +96,7 @@ class MinHeapBasic {
 
 
 
-// const testMinHeap = new MinHeapBasic();
+// const testMinHeap = new MinHeap();
 // testMinHeap.insert(5);
 // testMinHeap.insert(4);
 // testMinHeap.insert(7);
