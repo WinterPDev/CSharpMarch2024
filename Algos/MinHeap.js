@@ -23,7 +23,7 @@ class MinHeap {
    * @param {number} i
    */
   idxOfParent(i) {
-    // i == index of child node
+    // i == index of child node index position
     return Math.floor(i / 2);
   }
 
@@ -31,7 +31,7 @@ class MinHeap {
    * @param {number} i
    */
   idxOfLeftChild(i) {
-    // i == index of parent node
+    // i == index of parent node index position
     return i * 2;
   }
 
@@ -39,7 +39,7 @@ class MinHeap {
    * @param {number} i
    */
   idxOfRightChild(i) {
-    // i == index of parent node
+    // i == index of parent node index position
     return i * 2 + 1;
   }
 
@@ -50,7 +50,10 @@ class MinHeap {
    * @returns {?number} Null if empty.
    */
   top() {
-    // Your Code Here
+    if (!this.heap[1]) {
+      return null;
+    }
+    return this.heap[1];
   }
 
   /**
@@ -63,11 +66,43 @@ class MinHeap {
    * @param {number} num The num to add.
    */
   insert(num) {
-    // Your Code Here~
-    // Since we are swapping, we'll want to use some temp variables to avoid losing any data.
-    // A while loop is a good idea, so think of what logic to use for it. 
+    this.heap.push(num);
+    let insertIndex = this.heap.length - 1;
+    let parentIndex = this.idxOfParent(insertIndex);
+    while (
+      this.heap[insertIndex] < this.heap[parentIndex] &&
+      insertIndex != 0
+    ) {
+      let temp = this.heap[parentIndex];
+      this.heap[parentIndex] = num;
+      this.heap[insertIndex] = temp;
+      insertIndex = parentIndex;
+      parentIndex = this.idxOfParent(insertIndex);
+    }
+    return this.heap[1];
   }
 
+  /**
+ * Extracts the min num from the heap and then re-orders the heap to
+ * maintain order so the next min is ready to be extracted.
+ * 1. Save the first node to a temp var.
+ * 2. Pop last node off and overwrite idx1 with it.
+ * 3. Iteratively swap the old last node that is now at idx1 with it's
+ *    smallest child IF the smallest child is smaller than it.
+ * - Time: O(log n) logarithmic due to shiftDown.
+ * - Space: O(1) constant.
+ * @returns {?number} The min number or null if empty.
+ */
+  extract() {
+    /*
+    * 1. Save the first node to a temp var.   ( this.heap[1] )
+    * 2. Pop last node off and overwrite idx1 with it.   ( this.heap[this.heap.length-1] )
+    * 3. Iteratively swap the old last node that is now at idx1 with it's
+    *    smallest child IF the smallest child is smaller than it.
+    */
+
+
+  }
 
 
   // prints tree with root on left and index in parens in reverse inorder traversal
