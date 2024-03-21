@@ -67,8 +67,7 @@ class MinHeap {
    */
   insert(num) {
     this.heap.push(num);
-    let insertIndex = this.heap.length - 1;
-    let parentIndex = this.idxOfParent(insertIndex);
+    let insertIndex = this.heap.length - 1, parentIndex = this.idxOfParent(insertIndex);
     while (
       this.heap[insertIndex] < this.heap[parentIndex] &&
       insertIndex != 0
@@ -94,14 +93,33 @@ class MinHeap {
  * @returns {?number} The min number or null if empty.
  */
   extract() {
-    /*
-    * 1. Save the first node to a temp var.   ( this.heap[1] )
-    * 2. Pop last node off and overwrite idx1 with it.   ( this.heap[this.heap.length-1] )
-    * 3. Iteratively swap the old last node that is now at idx1 with it's
-    *    smallest child IF the smallest child is smaller than it.
-    */
+    let min;
+    if (this.heap.length == 1) {
+      return null
+    }
+    if (this.heap.length == 2) {
+      min = this.heap.pop();
+      return min;
+    }
+    min = this.heap[1];
+    this.heap[1] = this.heap.pop();
+    let currentidx = 1;
+    let leftIdx = this.idxOfLeftChild(currentidx);
+    let rightIdx = this.idxOfRightChild(currentidx);
 
+    while (this.heap[leftIdx] < this.heap[currentidx] || this.heap[rightIdx] < this.heap[currentidx]) {
+      if (this.heap[leftIdx] < this.heap[rightIdx]) {
+        [this.heap[leftIdx], this.heap[currentidx]] = [this.heap[currentidx], this.heap[leftIdx]]
+        currentidx = leftIdx;
+      } else {
+        [this.heap[rightIdx], this.heap[currentidx]] = [this.heap[currentidx], this.heap[rightIdx]]
+        currentidx = rightIdx;
+      }
+      leftIdx = this.idxOfLeftChild(currentidx);
+      rightIdx = this.idxOfRightChild(currentidx);
 
+    }
+    return min
   }
 
 
