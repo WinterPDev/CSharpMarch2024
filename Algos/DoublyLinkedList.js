@@ -1,5 +1,8 @@
 /**
  * Class to represent a Node for a DoublyLinkedList.
+ * Doubly Linked Lists have better performance when implementing searching. So they are good for: heaps, stacks, and binary trees.
+ * SLL is good for memory-saving and simplicity.
+ * DLL is for improved search performance and if you have a complex use case.
  */
 class DLLNode {
     /**
