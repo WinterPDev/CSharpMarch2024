@@ -49,7 +49,16 @@ class DoublyLinkedList {
      * @returns {DoublyLinkedList} This list.
      */
     insertAtFront(data) {
-        // Your Code Here
+        const newNode = new DLLNode(data);
+        if (this.isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+            return this;
+        }
+        this.head.prev = newNode;
+        newNode.next = this.head;
+        this.head = newNode;
+        return this;
     }
 
     /**
@@ -60,7 +69,17 @@ class DoublyLinkedList {
      * @returns {DoublyLinkedList} This list.
      */
     insertAtBack(data) {
-        // Your Code Here
+        const newNode = new DLLNode(data);
+
+        if (this.isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+            return this;
+        }
+        this.tail.next = newNode;
+        newNode.prev = this.tail;
+        this.tail = newNode;
+        return this;
     }
 
     // EXTRA
@@ -71,17 +90,29 @@ class DoublyLinkedList {
      * @returns {any} The data of the removed node or null if no true middle
      */
     removeMiddleNode() {
-        // Your Code Here
-        // Hint: You'll want to use two runners. One from the head, the other from the tail.
+        if (this.head == this.tail && !this.isEmpty()) {
+            let capture = this.head.data;
+            this.head = null;
+            this.tail = null;
+            return capture;
+        }
+        let headrunner = this.head;
+        let tailrunner = this.tail;
+        while (headrunner && tailrunner) {
+            if (headrunner == tailrunner) {
+                let midnode = headrunner;
+                midnode.prev.next = midnode.next;
+                midnode.next.prev = midnode.prev;
+                return midnode.data;
+            }
+            if (headrunner.prev == tailrunner) {
+                return null;
+            }
+            headrunner = headrunner.next;
+            tailrunner = tailrunner.prev;
+        }
+        return null;
     }
-
-
-
-
-
-
-
-
 
     /**
      * Determines if this list is empty.
