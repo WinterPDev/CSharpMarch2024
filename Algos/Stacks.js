@@ -80,31 +80,46 @@ class StackNode {
     }
 }
 
-//Stack implemented with a singly linked list, now we're talking
+//Stack implemented with a singly linked list:
 class LinkedListStack {
     constructor() {
         this.head = null;
     }
 
     push(item) {
-        //your code here
+        const newNode = new StackNode(item);
+        if (this.head === null) {
+            this.head = newNode;
+            this.size++;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+            this.size++;
+        }
     }
 
     pop() {
-        //your code here
+        if (this.head === null) {
+            return null;
+        }
+
+        const removed = this.head;
+        this.head = this.head.next;
+
+        this.size--;
+        return removed.data;
     }
 
     peek() {
-        //your code here
+        return this.isEmpty() ? null : this.head.data
     }
 
     isEmpty() {
-        //your code here
+        return this.head === null;
     }
 
     size() {
-        //your code here
-        // Bonus: how to make size O(1)?
+        return this.size
     }
 
     print() {
