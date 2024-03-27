@@ -182,6 +182,34 @@ class LinkedListQueue {
 
 }
 
+//Returns boolean whether queues are same length with same elements
+//Use only methods from Queue classes, do not directly alter linked list or array
+//No extra arrays / objects / etc
+//The queues should be in the same order when you're done! 
+
+function CompareQueues(qOne, qTwo) {
+    if (qOne.len() !== qTwo.len()) {
+        return false
+    }
+    let counter = 0
+    while (counter < qOne.len()) {
+        const q1Node = qOne.dequeue()
+        const q2Node = qTwo.dequeue()
+        if (q1Node == q2Node) {
+            qOne.enqueue(q1Node)
+            qTwo.enqueue(q2Node)
+            counter++
+        }
+        else {
+            return false
+        }
+    }
+    return true
+}
+
+
+
+
 const arrayQueueOne = new Queue();
 arrayQueueOne.items = [1, 2, 9, 3, 3, 6];
 arrayQueueOne.print();
