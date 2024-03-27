@@ -95,7 +95,7 @@ class LinkedListQueue {
      * @returns {number} The length.
      */
     len() {
-        // Your Code Here
+        return this.size;
     }
 
     /**
@@ -104,7 +104,7 @@ class LinkedListQueue {
      * @returns {boolean} Indicates if the list is empty.
      */
     isEmpty() {
-        // Your Code Here
+        return this.size === 0;
     }
 
     /**
@@ -115,7 +115,17 @@ class LinkedListQueue {
      * @returns {number} The new size of the queue.
      */
     enqueue(val) {
-        // Your Code Here
+        const newNode = new QueueNode(val)
+        if (this.isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.size++;
+        return this.size;
     }
 
     /**
@@ -124,7 +134,16 @@ class LinkedListQueue {
      * @returns {any} The removed item.
      */
     dequeue() {
-        // Your Code Here
+        if (this.isEmpty()) {
+            return null
+        }
+        const oldHead = this.head;
+        this.head = this.head.next;
+        if (this.head === null) {
+            this.tail = null;
+        }
+        this.size--
+        return oldHead;
     }
 
     /**
@@ -134,8 +153,9 @@ class LinkedListQueue {
      * @returns {any} The first item.
      */
     front() {
-        // Your Code Here
+        return this.head ? this.head.data : null;
     }
+
 
 
     /**
@@ -160,71 +180,6 @@ class LinkedListQueue {
         return vals;
     }
 
-}
-
-
-//Returns boolean whether queues are same length with same elements
-//Use only methods from Queue classes, do not directly alter linked list or array
-//No extra arrays / objects / etc
-//The queues should be in the same order when you're done! 
-
-function CompareQueues(qOne, qTwo) {
-    if (qOne.len() != qTwo.len()) {
-        return false;
-    }
-    let count = 0;
-    let isEqual = true;
-    const len = qOne.len();
-
-    while (count < len) {
-        const dequeuedOne = qOne.dequeue();
-        const dequeuedTwo = qTwo.dequeue();
-
-        if (dequeuedOne !== dequeuedTwo) {
-            isEqual = false;
-        }
-
-        qOne.enqueue(dequeuedOne);
-        qTwo.enqueue(dequeuedTwo);
-        count++;
-    }
-    return isEqual;
-}
-
-/**
- * Determines whether the sum of the left half of the queue items is equal to
- * the sum of the right half. Avoid indexing the queue items directly via
- * bracket notation, use the queue methods instead for practice.
- * Use no extra array or objects.
- * The queue should be returned to it's original order when done.
- * If queue cannot be evenly divided, return false.
- * - Time: O(?).
- * - Space: O(?).
- * @returns {boolean} Whether the sum of the left and right halves is equal.
- */
-function isSumOfHalvesEqual(queue) {
-    const len = queue.len();
-
-    if (queue.isEmpty() || len % 2 !== 0) {
-        return false;
-    }
-
-    const halfLen = len / 2;
-    let leftSum = 0;
-    let rightSum = 0;
-    let count = 0;
-
-    while (count < len) {
-        const dequeued = queue.dequeue();
-        if (count < halfLen) {
-            leftSum += dequeued;
-        } else {
-            rightSum += dequeued;
-        }
-        count++;
-        queue.enqueue(dequeued);
-    }
-    return leftSum === rightSum;
 }
 
 const arrayQueueOne = new Queue();
